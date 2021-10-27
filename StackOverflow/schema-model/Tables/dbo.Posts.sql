@@ -19,7 +19,8 @@ CREATE TABLE [dbo].[Posts]
 [Score] [int] NOT NULL,
 [Tags] [nvarchar] (150) NULL,
 [Title] [nvarchar] (250) NULL,
-[ViewCount] [int] NOT NULL
+[ViewCount] [int] NOT NULL,
+[twitter_id] [nvarchar] (20) NULL
 )
 GO
 ALTER TABLE [dbo].[Posts] ADD CONSTRAINT [PK_Posts__Id] PRIMARY KEY CLUSTERED ([Id])
