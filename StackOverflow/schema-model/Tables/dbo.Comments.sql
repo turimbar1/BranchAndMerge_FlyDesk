@@ -5,7 +5,8 @@ CREATE TABLE [dbo].[Comments]
 [PostId] [int] NOT NULL,
 [Score] [int] NULL,
 [Text] [nvarchar] (700) NOT NULL,
-[UserId] [int] NULL
+[UserId] [int] NULL,
+[Length] [int] NULL
 )
 GO
 ALTER TABLE [dbo].[Comments] ADD CONSTRAINT [PK_Comments__Id] PRIMARY KEY CLUSTERED ([Id])
