@@ -9,11 +9,3 @@ ALTER TABLE [dbo].[Badges] ADD
 GO
 PRINT N'Altering [dbo].[Comments]'
 GO
-ALTER TABLE [dbo].[Comments] ADD
-[Length] [int] NULL
-GO
-PRINT N'Altering [dbo].[Users]'
-GO
-ALTER TABLE [dbo].[Users] ADD
-[TikTokId] [nvarchar] (50) NULL
-GO

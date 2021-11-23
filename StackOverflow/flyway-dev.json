@@ -1,5 +1,5 @@
 {
-  "version": "1.1",
+  "version": "2.0",
   "name": "StackOverflow",
   "id": "34da30d9-55c5-4f21-bd09-e642e44bc348",
   "databaseType": "SqlServer",
