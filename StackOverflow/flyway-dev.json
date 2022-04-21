@@ -1,11 +1,8 @@
 {
   "version": "2.0",
   "name": "StackOverflow",
-  "id": "34da30d9-55c5-4f21-bd09-e642e44bc348",
+  "id": "7358a54c-f459-45bc-a3d2-d6afa8adb14a",
   "databaseType": "SqlServer",
-  "schemas": [
-    "dbo"
-  ],
   "development": {
     "scriptsFolder": "./schema-model"
   },
