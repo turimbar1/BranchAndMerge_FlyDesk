@@ -9,6 +9,15 @@
   "deployment": {
     "flywayConfFiles": [
       "./flyway.conf"
+    ],
+    "targetDatabases": [
+      {
+        "connectionProvider": {
+          "url": "jdbc:sqlserver://localhost;encrypt=true;integratedSecurity=true;databaseName=stackoverflow;trustServerCertificate=true",
+          "type": "UsernamePassword"
+        },
+        "schemas": []
+      }
     ]
   }
 }
