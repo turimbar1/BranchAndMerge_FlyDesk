@@ -14,5 +14,9 @@ ALTER TABLE [dbo].[Employee] ADD CONSTRAINT [PK__Employee__3214EC273FADE631] PRI
 GO
 ALTER TABLE [dbo].[Employee] ADD CONSTRAINT [FK_Employee_OfficeCode] FOREIGN KEY ([officeCode]) REFERENCES [dbo].[Office] ([Code])
 GO
+ALTER TABLE [dbo].[Employee] ADD CONSTRAINT [FK_Employee_OfficeCode2] FOREIGN KEY ([officeCode]) REFERENCES [dbo].[Office] ([Code])
+GO
 ALTER TABLE [dbo].[Employee] ADD CONSTRAINT [FK_Employee_ReportsTo] FOREIGN KEY ([reportsTo]) REFERENCES [dbo].[Employee] ([ID])
+GO
+ALTER TABLE [dbo].[Employee] ADD CONSTRAINT [FK_Employee_ReportsTo2] FOREIGN KEY ([reportsTo]) REFERENCES [dbo].[Employee] ([ID])
 GO

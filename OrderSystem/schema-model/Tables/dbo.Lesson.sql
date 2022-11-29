@@ -1,0 +1,8 @@
+CREATE TABLE [dbo].[Lesson]
+(
+[Id] [int] NOT NULL,
+[LName] [varchar] (50) NULL
+)
+GO
+ALTER TABLE [dbo].[Lesson] ADD CONSTRAINT [PK__Lesson__3214EC07837E2574] PRIMARY KEY CLUSTERED ([Id])
+GO

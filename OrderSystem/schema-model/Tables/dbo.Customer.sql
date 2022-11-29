@@ -12,7 +12,8 @@ CREATE TABLE [dbo].[Customer]
 [streetAddress] [nvarchar] (100) NULL,
 [City] [nvarchar] (70) NULL,
 [postalZipCode] [nvarchar] (10) NULL,
-[creditLimit] [decimal] (19, 2) NULL
+[creditLimit] [decimal] (19, 2) NULL,
+[RG_ID] [nvarchar] (30) NULL
 )
 GO
 ALTER TABLE [dbo].[Customer] ADD CONSTRAINT [PK__Customer__3214EC27ADB4BCE0] PRIMARY KEY CLUSTERED ([ID])

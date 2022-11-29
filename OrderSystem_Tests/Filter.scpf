@@ -10,8 +10,8 @@ Version:14.6.10.20102-->
     <FilterCaseSensitive>False</FilterCaseSensitive>
     <Filters version="1">
       <None version="1">
-        <Include>False</Include>
-        <Expression>((@NAME LIKE '[_][_]%')) OR ((@NAME LIKE 'DMS%'))</Expression>
+        <Include>True</Include>
+        <Expression>((@SCHEMA LIKE 'sql%')) OR ((@SCHEMA LIKE 'tSQLt%'))</Expression>
       </None>
       <Assembly version="1">
         <Include>True</Include>
@@ -127,7 +127,7 @@ Version:14.6.10.20102-->
       </Table>
       <User version="1">
         <Include>True</Include>
-        <Expression />
+        <Expression>TRUE</Expression>
       </User>
       <UserDefinedType version="1">
         <Include>True</Include>

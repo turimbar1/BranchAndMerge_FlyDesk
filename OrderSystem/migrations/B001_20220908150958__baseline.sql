@@ -160,6 +160,63 @@ GO
 			WHERE RowNumber = 1
 	
 GO
+PRINT N'Creating [dbo].[Employee2]'
+GO
+CREATE TABLE [dbo].[Employee2]
+(
+[ID] [int] NOT NULL,
+[officeCode] [int] NOT NULL,
+[reportsTo] [int] NULL,
+[jobTitle] [nvarchar] (60) NULL,
+[firstName] [nvarchar] (100) NULL,
+[lastName] [nvarchar] (100) NULL,
+[Extension] [nvarchar] (8) NULL,
+[Email] [nvarchar] (80) NULL
+)
+GO
+PRINT N'Creating primary key [PK__Employee__3214EC273FA4040A] on [dbo].[Employee2]'
+GO
+ALTER TABLE [dbo].[Employee2] ADD CONSTRAINT [PK__Employee__3214EC273FA4040A] PRIMARY KEY CLUSTERED ([ID])
+GO
+PRINT N'Creating [dbo].[GetEmployee2]'
+GO
+--SET QUOTED_IDENTIFIER ON|OFF
+--SET ANSI_NULLS ON|OFF
+--GO
+CREATE PROCEDURE [dbo].[GetEmployee2]
+    @parameter_name AS INT
+-- WITH ENCRYPTION, RECOMPILE, EXECUTE AS CALLER|SELF|OWNER| 'user_name'
+AS
+BEGIN
+    SELECT * FROM [dbo].[Employee2] AS [e2]
+END
+GO
+PRINT N'Creating [dbo].[EmployeeSuite]'
+GO
+--SET QUOTED_IDENTIFIER ON|OFF
+--SET ANSI_NULLS ON|OFF
+--GO
+CREATE PROCEDURE [dbo].[EmployeeSuite]
+    @parameter_name AS INT
+-- WITH ENCRYPTION, RECOMPILE, EXECUTE AS CALLER|SELF|OWNER| 'user_name'
+AS
+BEGIN
+    SELECT * FROM [dbo].[Employee2] AS [e2]
+END
+GO
+PRINT N'Creating [dbo].[EmployeeBy]'
+GO
+--SET QUOTED_IDENTIFIER ON|OFF
+--SET ANSI_NULLS ON|OFF
+--GO
+CREATE PROCEDURE [dbo].[EmployeeBy]
+    @parameter_name AS INT
+-- WITH ENCRYPTION, RECOMPILE, EXECUTE AS CALLER|SELF|OWNER| 'user_name'
+AS
+BEGIN
+    SELECT * FROM [dbo].[Employee2] AS [e2]
+END
+GO
 PRINT N'Creating [dbo].[CountryCode]'
 GO
 CREATE TABLE [dbo].[CountryCode]
@@ -171,6 +228,57 @@ GO
 PRINT N'Creating primary key [PK__CountryC__A25C5AA6388137C3] on [dbo].[CountryCode]'
 GO
 ALTER TABLE [dbo].[CountryCode] ADD CONSTRAINT [PK__CountryC__A25C5AA6388137C3] PRIMARY KEY CLUSTERED ([Code])
+GO
+PRINT N'Creating [dbo].[DMSSTAT_RSTATS]'
+GO
+CREATE TABLE [dbo].[DMSSTAT_RSTATS]
+(
+[runid] [varchar] (250) NOT NULL,
+[ruleid] [varchar] (50) NOT NULL,
+[ruleblock] [int] NOT NULL,
+[rulenum] [int] NOT NULL,
+[rulesubscript] [int] NOT NULL,
+[ruletype] [varchar] (50) NOT NULL,
+[rulecreated] [datetime] NOT NULL,
+[ruleupdated] [datetime] NOT NULL,
+[secondsactive] [int] NOT NULL,
+[rulestatus] [char] (1) NOT NULL,
+[rulesource] [varchar] (250) NULL,
+[ruletarget] [varchar] (250) NULL,
+[rowoperations] [bigint] NULL,
+[coloperations] [bigint] NULL,
+[rulePrevRPN] [int] NULL,
+[ruleRPN] [int] NULL
+)
+GO
+PRINT N'Creating index [IX_DMSSTAT_RSTATS] on [dbo].[DMSSTAT_RSTATS]'
+GO
+CREATE NONCLUSTERED INDEX [IX_DMSSTAT_RSTATS] ON [dbo].[DMSSTAT_RSTATS] ([runid], [ruleid])
+GO
+PRINT N'Creating [dbo].[DMSSTAT_TSTATS]'
+GO
+CREATE TABLE [dbo].[DMSSTAT_TSTATS]
+(
+[runid] [varchar] (250) NOT NULL,
+[ruleid] [varchar] (50) NOT NULL,
+[statscreated] [datetime] NOT NULL,
+[statsupdated] [datetime] NOT NULL,
+[ruletype] [varchar] (50) NOT NULL,
+[ruleblock] [int] NOT NULL,
+[rulenum] [int] NOT NULL,
+[rulesubscript] [int] NOT NULL,
+[controllerid] [varchar] (50) NULL,
+[tabledatabase] [varchar] (250) NOT NULL,
+[tableschema] [varchar] (250) NOT NULL,
+[tablename] [varchar] (250) NOT NULL,
+[tablecolumn] [varchar] (250) NULL,
+[rowoperations] [bigint] NULL,
+[coloperations] [bigint] NULL
+)
+GO
+PRINT N'Creating index [IX_DMSSTAT_TSTATS_A] on [dbo].[DMSSTAT_TSTATS]'
+GO
+CREATE NONCLUSTERED INDEX [IX_DMSSTAT_TSTATS_A] ON [dbo].[DMSSTAT_TSTATS] ([runid], [ruleid])
 GO
 PRINT N'Creating [dbo].[Product]'
 GO
@@ -196,6 +304,19 @@ CREATE TABLE [dbo].[__SchemaSnapshot]
 [LastUpdateDate] [datetime2] NULL CONSTRAINT [__SchemaSnapshotDateDefault] DEFAULT (sysdatetime())
 )
 GO
+PRINT N'Creating [dbo].[ARP_Employee]'
+GO
+--SET QUOTED_IDENTIFIER ON|OFF
+--SET ANSI_NULLS ON|OFF
+--GO
+CREATE PROCEDURE [dbo].[ARP_Employee]
+    @parameter_name AS INT
+-- WITH ENCRYPTION, RECOMPILE, EXECUTE AS CALLER|SELF|OWNER| 'user_name'
+AS
+BEGIN
+    SELECT * FROM [ARP].[dbo].[Employee] AS [e]
+END
+GO
 PRINT N'Adding foreign keys to [dbo].[Order]'
 GO
 ALTER TABLE [dbo].[Order] ADD CONSTRAINT [FK_Order_CustomerID] FOREIGN KEY ([custID]) REFERENCES [dbo].[Customer] ([ID])
@@ -208,7 +329,11 @@ PRINT N'Adding foreign keys to [dbo].[Employee]'
 GO
 ALTER TABLE [dbo].[Employee] ADD CONSTRAINT [FK_Employee_ReportsTo] FOREIGN KEY ([reportsTo]) REFERENCES [dbo].[Employee] ([ID])
 GO
+ALTER TABLE [dbo].[Employee] ADD CONSTRAINT [FK_Employee_ReportsTo2] FOREIGN KEY ([reportsTo]) REFERENCES [dbo].[Employee] ([ID])
+GO
 ALTER TABLE [dbo].[Employee] ADD CONSTRAINT [FK_Employee_OfficeCode] FOREIGN KEY ([officeCode]) REFERENCES [dbo].[Office] ([Code])
+GO
+ALTER TABLE [dbo].[Employee] ADD CONSTRAINT [FK_Employee_OfficeCode2] FOREIGN KEY ([officeCode]) REFERENCES [dbo].[Office] ([Code])
 GO
 PRINT N'Adding foreign keys to [dbo].[OrderIssue]'
 GO

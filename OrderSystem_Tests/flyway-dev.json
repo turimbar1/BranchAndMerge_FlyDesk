@@ -1,0 +1,33 @@
+{
+  "version": "2.0",
+  "name": "OrderSystem_Tests",
+  "id": "5bf41de9-63fd-4d21-a812-bac8821c2710",
+  "databaseType": "SqlServer",
+  "development": {
+    "scriptsFolder": "./schema-model"
+  },
+  "deployment": {
+    "flywayConfFiles": [
+      "./flyway.conf"
+    ],
+    "targetDatabases": [
+      {
+        "connectionProvider": {
+          "url": "jdbc:sqlserver://localhost;encrypt=true;integratedSecurity=true;databaseName=OrderSystem_andrew.pierce_SHADOW;trustServerCertificate=true",
+          "type": "UsernamePassword"
+        },
+        "schemas": [],
+        "displayName": "Shadow"
+      }
+    ]
+  },
+  "capabilities": {
+    "comparison": {
+      "filter": "./Filter.scpf",
+      "options": {
+        "ObjectExistenceChecks": true,
+        "IgnoreTSQLT": false
+      }
+    }
+  }
+}
