@@ -10,6 +10,13 @@ CREATE PROCEDURE [dbo].[GetEmployee2]
 -- WITH ENCRYPTION, RECOMPILE, EXECUTE AS CALLER|SELF|OWNER| 'user_name'
 AS
 BEGIN
-    SELECT * FROM [dbo].[Employee2] AS [e2]
+    SELECT [e2].[ID],
+           [e2].[officeCode],
+           [e2].[reportsTo],
+           [e2].[jobTitle],
+           [e2].[firstName],
+           [e2].[lastName],
+           [e2].[Extension],
+           [e2].[Email] FROM [dbo].[Employee2] AS [e2]
 END
 GO
