@@ -1,0 +1,52 @@
+{
+  "individualResults": [
+    {
+      "initialSchemaVersion": "003.20220909232606",
+      "targetSchemaVersion": "004.20230626005754",
+      "schemaName": "",
+      "migrations": [
+        {
+          "category": "Versioned",
+          "version": "004.20230626005754",
+          "description": "andrew pierce",
+          "type": "SQL",
+          "filepath": "C:\\Repos\\StackOverflow\\BranchAndMerge_FlyDesk\\OrderSystem\\migrations\\V004_20230626005754__andrew_pierce.sql",
+          "executionTime": 91
+        }
+      ],
+      "migrationsExecuted": 1,
+      "success": true,
+      "flywayVersion": "9.19.4",
+      "database": "OrderSystem_FWD_Shadow",
+      "warnings": [
+        "outOfOrder mode is active. Migration of schema [dbo] may not be reproducible."
+      ],
+      "databaseType": null,
+      "timestamp": "2023-06-25T17:59:07.741740600",
+      "operation": "migrate",
+      "exception": null,
+      "licenseFailed": false
+    },
+    {
+      "results": [],
+      "timestamp": "2024-07-08T15:12:12.286719700",
+      "operation": "code",
+      "exception": "Flyway code analysis requires Python 3, pip and SqlFluff version 1.2.1\r\nrun \u0027pip install sqlfluff\u003d\u003d1.2.1\u0027 to install SqlFluff",
+      "licenseFailed": false
+    },
+    {
+      "results": [],
+      "timestamp": "2024-07-08T15:12:12.333660300",
+      "operation": "code",
+      "exception": "Flyway code analysis requires Python 3, pip and SqlFluff version 1.2.1\r\nrun \u0027pip install sqlfluff\u003d\u003d1.2.1\u0027 to install SqlFluff",
+      "licenseFailed": false
+    },
+    {
+      "results": [],
+      "timestamp": "2024-07-12T10:43:54.907966400",
+      "operation": "code",
+      "exception": "Flyway SqlFluff code analysis requires Python 3, pip and SqlFluff version 1.2.1 or greater, preferably version 3.0.7\r\nRun \u0027pip install sqlfluff\u003d\u003d3.0.7\u0027 to install SqlFluff if you would like to access this function",
+      "licenseFailed": false
+    }
+  ]
+}
